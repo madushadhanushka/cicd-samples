@@ -1,11 +1,8 @@
 import ballerina/io;
 import ballerina/test;
+import ballerina/http;
 
-# Before Suite Function
-@test:BeforeSuite
-function beforeSuiteFunc() {
-    io:println("I'm the before suite function!");
-}
+http:Client clientEP = new("http://localhost:9090/OrderService");
 
 # Before test function
 function beforeFunc() {
@@ -25,10 +22,4 @@ function testFunction() {
 # After test function
 function afterFunc() {
     io:println("I'm the after function!");
-}
-
-# After Suite Function
-@test:AfterSuite {}
-function afterSuiteFunc() {
-    io:println("I'm the after suite function!");
 }
