@@ -1,0 +1,8 @@
+box: ballerina/ballerina:swan-lake-preview7
+no-response-timeout: 10
+build:
+  steps:    
+    - script:
+        name: build
+        code: |
+          ballerina build

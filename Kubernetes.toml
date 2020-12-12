@@ -1,6 +1,6 @@
 [container.image]
  repository="dhanushka"
- name="werckersamples"
+ name="cicd_samples"
  tag="v0.1.0"
 
  [cloud.deployment]
