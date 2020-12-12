@@ -1,0 +1,10 @@
+[container.image]
+ repository="dhanushka"
+ name="werckersamples"
+ tag="v0.1.0"
+
+ [cloud.deployment]
+ min_memory="100Mi" 
+ max_memory="256Mi" 
+ min_cpu="1000m" 
+ max_cpu="1500m" 
