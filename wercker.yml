@@ -1,4 +1,7 @@
-box: ballerina/ballerina:swan-lake-preview7
+box:
+  id: ballerina/ballerina:swan-lake-preview7
+  cmd: /bin/bash
+  entrypoint: /bin/bash -c
 no-response-timeout: 10
 build:
   steps:    
