@@ -1,15 +1,17 @@
 pipeline {
     agent {
-        docker { image 'ballerina/ballerina:swan-lake-preview7' }
+        docker { image 'ballerina/ballerina:swan-lake-preview8' }
     }
     stages {
-        stage('Initialize'){
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
         stage('Test') {
+            environment {
+                docker_username = credentials('docker_username')
+                docker_password = credentials('docker_password')
+            }
             steps {
-                sh 'ballerina -v'
+                sh 'pwd'
+                sh 'ls -all'
+                sh 'sudo ballerina build'
             }
         }
     }
