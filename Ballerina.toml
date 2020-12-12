@@ -1,6 +1,6 @@
 [package]
 org = "dhanushka"
-name = "WerckerSamples"
+name = "CICDSample"
 version = "0.1.0"
 
 [build-options]
