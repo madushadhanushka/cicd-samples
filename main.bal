@@ -1,20 +1,12 @@
 import ballerina/http;
-import ballerina/docker;
-import ballerina/jdbc;
-import ballerina/c2c as _;
+import ballerinax/java.jdbc;
  
-@docker:Config {
-   push: true,
-   registry: "index.docker.io/$env{docker_username}",
-   username: "$env{docker_username}",
-   password: "$env{docker_password}"
-}
 listener http:Listener orderEP = new(9090);
-service OrderService on orderEP {
-    resource function addOrder(http:Caller caller,
-        http:Request req) returns error? {
-        check caller->respond("Order added");
+service /OrderService on new http:Listener(9090) {
+    resource function get addOrder() returns string {
+        return "Order added";
     }
+
 }
 function getAvailableProductQuantity(jdbc:Client jdbcClient, string inventoryItemId) returns @untainted int|error {
     stream<record{}, error> resultStream = jdbcClient->query(`SELECT Quantity FROM InventoryItems WHERE 
